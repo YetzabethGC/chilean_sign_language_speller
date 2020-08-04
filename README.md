@@ -14,8 +14,10 @@ This repository includes a .blend file, supporting codes to adjust the posture o
 ## How to use
 ## Executing in the Blender platform
 
-Open the .blend file in Blender. There, at the right side of the screen, on the Properties<Scene space, click on the "Play" button in the Standalone Player area and a window showing the avatar and two input systems will pop up:
-<img src="img/playinblender.png" width="500">
+Open the .blend file in Blender. There, at the right side of the screen, on the Properties<Scene space, click on the "Play" button in the Standalone Player area:
+<img src="img/playinblender.png" width="200">
+A window showing the avatar and two input systems will pop up:
+<img src="img/buttons.png" width="200">
 
 ### To use the Keyboard input system
 
