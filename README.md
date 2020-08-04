@@ -39,8 +39,8 @@ Using the speller.exe executable file in the .zip document.
 
 ## Authors
 
-* Yetzabeth González - *Instituto de Acústica UACh*
-* Victor Vargas Sandoval victorvargassandoval93@gmail.com - *Instituto de Informática UACh*
+* Yetzabeth González yetzabeth.gonzalez@hotmail.com - *Instituto de Acústica UACh*
+* Victor Vargas Sandoval - *Instituto de Informática UACh*
 * Victor Poblete - *Instituto de Acústica UACh*
 * Pablo Huijse - *Instituto de Informática UACh*
 
