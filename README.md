@@ -7,15 +7,22 @@ This repository includes a .blend file, supporting codes to adjust the posture o
 ### Prerequisites 
 
   * python==3.5
-  * blender=>2.79
+  * blender=<2.79
   * speech_recognition==2.8.1
   * pyaudio==0.2.8
   
 ## How to use
+To edit the coding and functioning of the platform, it is necessary to open and edit the .blend file.
+
 ## Executing in the Blender platform
 
-Open the .blend file in Blender. There, at the right side of the screen, on the Properties<Scene space, click on the "Play" button in the Standalone Player area and a window showing the avatar and two input systems will pop up:
-<img src="img/playinblender.png" width="500">
+Open the .blend file in Blender. There, at the right side of the screen, on the Properties<Scene space, click on the "Play" button in the Standalone Player area:
+
+<img src="img/playinblender.png" width="300">
+
+A window showing the avatar and two input systems will pop up:
+
+<img src="img/buttons.png" width="500">
 
 ### To use the Keyboard input system
 
@@ -27,8 +34,11 @@ The system will indicate on the message above the word "Reproduciendo" while the
 
 ### To use the Speech input system
 
-Make sure to have a working mic input and internet connection in your system. Click the ear icon on the top left corner and input your spoken message into the system of 5 seconds max. This system recognizes Spanish, to change the input language,
+Make sure to have a working mic input and internet connection in your system. Click the ear icon on the top left corner and input your spoken message into the system of 5 seconds max. This system recognizes Spanish, to change the input language, select the "Speechrec" text file included in the text editor window in Blender:
 
+<img src="img/texteditor.png" width="300">
+
+And modify the value in the "phrase" variable. To read more of how the Speech_recognition system works, check its documentation here: [SpeechRecognition](https://github.com/Uberi/speech_recognition/tree/3.8.1).
 
 ### Executing from the executable file
 
@@ -37,8 +47,8 @@ Using the speller.exe executable file in the .zip document.
 
 ## Authors
 
-* Yetzabeth González - *Instituto de Acústica UACh*
-* Victor Vargas Sandoval victorvargassandoval93@gmail.com - *Instituto de Informática UACh*
+* Yetzabeth González yetzabeth.gonzalez@hotmail.com - *Instituto de Acústica UACh*
+* Victor Vargas Sandoval - *Instituto de Informática UACh*
 * Victor Poblete - *Instituto de Acústica UACh*
 * Pablo Huijse - *Instituto de Informática UACh*
 
