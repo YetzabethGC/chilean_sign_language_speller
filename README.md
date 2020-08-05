@@ -7,7 +7,7 @@ This repository includes a .blend file, supporting codes to adjust the posture o
 ### Prerequisites 
 
   * python==3.5
-  * blender=>2.79
+  * blender=<2.79
   * speech_recognition==2.8.1
   * pyaudio==0.2.8
   
@@ -15,9 +15,12 @@ This repository includes a .blend file, supporting codes to adjust the posture o
 ## Executing in the Blender platform
 
 Open the .blend file in Blender. There, at the right side of the screen, on the Properties<Scene space, click on the "Play" button in the Standalone Player area:
-<img src="img/playinblender.png" width="200">
+
+<img src="img/playinblender.png" width="300">
+
 A window showing the avatar and two input systems will pop up:
-<img src="img/buttons.png" width="200">
+
+<img src="img/buttons.png" width="500">
 
 ### To use the Keyboard input system
 
