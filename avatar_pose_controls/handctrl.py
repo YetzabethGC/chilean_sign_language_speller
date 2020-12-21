@@ -1,39 +1,39 @@
 # -*- coding: utf-8 -*-
-#POSICION ik
-
 
 import bpy
 
-def hRH(pos): #altura mano derecha
+def hRH(pos): #height RIGHT HAND
     h=bpy.data.objects['3'].pose.bones['hand.ik.R']
     c=bpy.data.objects['3'].pose.bones['elbow.pt.ik.R']
     cl=bpy.data.objects['3'].pose.bones['clavicle.R']
-    crh=(0,-0.2,0) #posicion inicial del codo
-    clp=(1,0,0.1,0.05) #posicion inicial de la clavicula
-    if pos ==0: #REPOSO
+    crh=(0,-0.2,0) #elbow initial position
+    clp=(1,0,0.1,0.05) #clavicle initial position
+    if pos ==0: #IDLE
         hrh= (0.18,-0.04, 0.32) 
         rrh=(0.834,0.38,-0.2,-0.3)
-    elif pos==1:#ESTÓMago
+    elif pos==1:#STOMACH
         hrh=(0.25, -0.067, 0.22)
         rrh=(0.12,-0.1,-0.02,-0.2)
-    elif pos==2:#pecho
+    elif pos==2:#CHEST
         hrh=(0.23, -0.16, 0.19)
         rrh=(0.595,-0.5,-0.013,-0.5)
-    elif pos==3:#cuello
+    elif pos==3:#NECK
         hrh =(0.39, -0.2, 0.08)
         rrh=(0.5,-0.62,-0.055,-0.6)
-    elif pos==4:#cara
+    elif pos==4:#FACE
         hrh=(0.51, -0.26, 0.04)
         rrh=(0.476,-0.621,-0,-0.6)
         clp=(0.96,0.25,0,0.1)
         crh=(0.16,-0.11,0.44)
-    elif pos==5:#cabeza+
+    elif pos==5:#HEAD+
         hrh= (0.59, -0.4, -0.02) 
         rrh=(0.38,-0.71,-0.226,-0.54) 
         crh=(0.045,0.06,0.7)
         clp=(0.986,0.16,0.1,0.03)
     else:
-    	print ('error')
+        hrh= (0.18,-0.04, 0.32) 
+        rrh=(0.834,0.38,-0.2,-0.3)
+        print('Only numbers from 0 to 5')
     
     
     h.location=hrh
@@ -41,41 +41,43 @@ def hRH(pos): #altura mano derecha
     h.rotation_quaternion=rrh
     cl.rotation_quaternion=clp
 
-#hRH(0) #posicion de ejemplo
+#hRH(0) #example, uncomment and run script to test
 
 
 
 
-def hLH(pos): #altura mano izquierda
+def hLH(pos): #height LEFT HAND
     h=bpy.data.objects['3'].pose.bones['hand.ik.L']
     c=bpy.data.objects['3'].pose.bones['elbow.pt.ik.L']
     cl=bpy.data.objects['3'].pose.bones['clavicle.L']
-    clh=(0.02,-0.1,0) #posicion inicial del codo
-    clp=(1,0,0,0) #posicion inicial de la clavicula
+    clh=(0.02,-0.1,0) #elbow initial position
+    clp=(1,0,0,0) #clavicle initial position
     if pos ==0:
-        hlh= (-0.12,-0.01, 0.33) #REPOSO
+        hlh= (-0.12,-0.01, 0.33) #IDLE
         rlh=(0.72,0.46,0.227,0.45)
     elif pos==1:
-        hlh=(-0.218, -0.08, 0.2)#ESToMago
+        hlh=(-0.218, -0.08, 0.2)#ESTOMACH
         rlh=(1.2,-0.636,0,1.19)
     elif pos==2:
-        hlh=(-0.26, -0.077, 0.16)#pecho
+        hlh=(-0.26, -0.077, 0.16)#CHEST
         rlh=(0.5,-0.5,0.034,0.56)
     elif pos==3:
-        hlh =(-0.4, -0.13, 0.095)#cuello
+        hlh =(-0.4, -0.13, 0.095)#NECK
         rlh=(0.412,-0.547,0.4,0.6)
     elif pos==4:
-        hlh=(-0.47, -0.2, 0.01)#cara
+        hlh=(-0.47, -0.2, 0.01)#FACE
         rlh=(0.4,-0.77,0.1,0.47)
         clh=(-0.218,-0.15,-0.043)
         clp=(0.9,0.2,-0.265,-0.1)
-    elif pos==5:#cabeza+
+    elif pos==5:#HEAD+
         hlh= (-0.52, -0.4, -0.01) 
         rlh=(0.48,-0.676,0.13,0.54) 
         clh=(-0.31,-0.25,0.2)
         clp=(0.965,0.1,-0.85,0.2)
     else:
-    	print ('error')
+        hlh= (-0.12,-0.01, 0.33) #IDLE
+        rlh=(0.72,0.46,0.227,0.45)
+        print ('Only numbers from 0 to 5')
     
     
     h.location=hlh
@@ -83,53 +85,53 @@ def hLH(pos): #altura mano izquierda
     h.rotation_quaternion=rlh
     cl.rotation_quaternion=clp
 
-#hLH(0) 
+#hLH(3) #example, uncomment and run script to test
 
 
 ################################################################################
 
-def dLH(pos): #distancia al cuerpo mano izquierda
+def dLH(pos): #distance from the body LEFT HAND
     h=bpy.data.objects['3'].pose.bones['hand.ik.L']
     e=bpy.data.objects['3'].pose.bones['elbow.pt.ik.L']
-    if pos==0: #centro
+    if pos==0: #CENTER
         a=-0
         h.location[2]=h.location[2]+a
-    elif pos==1: #aleja del cuerpo
+    elif pos==1: #away from body
         a=-0.15
         h.location[2]=h.location[2]+a
         h.location[0]=h.location[0]-a
-    elif pos==-1: #lado contrario del cuerpo
+    elif pos==-1: #opposite side
         a=0.15
         h.location[2]=h.location[2]+a
         h.location[0]=h.location[0]-a
         e.location=(-0.15,0.15,0.42)
     else:
-    	print ('error')  
+    	print ('inputs are -1, 0 and 1')  
 
-#dLH(0)      
+#dLH(0)  #example, uncomment and run script to test    
 
 
-def dRH(pos): #distancia al cuerpo mano derecha
+def dRH(pos): #distance from body RIGHT HAND
     h=bpy.data.objects['3'].pose.bones['hand.ik.R']
-    if pos==0: #centro
+    if pos==0: #CENTER
         a=0
         h.location[2]=h.location[2]+a
-    elif pos==1: #aleja del cuerpo
+    elif pos==1: #away from body
         a=-0.15
         h.location[2]=h.location[2]+a
         h.location[0]=h.location[0]+a
-    elif pos==-1: #lado contrario del cuerpo
+    elif pos==-1: #opposite side
         a=0.15
         h.location[2]=h.location[2]+a
         h.location[0]=h.location[0]+a
     else:
-    	print ('error')  
+    	print ('inputs are -1, 0 and 1')  
 
-#dRH(0)    
+#dRH(0)    #example, uncomment and run script to test    
 
 #############################################################################
 
-def rhF(x1,x2,x3,x4,x5): #control dedos mano derecha (pulgar, indice, medio,anular,meñique) COLOCAR DISTANCIA ENTRE DEDOS
+def rhF(x1,x2,x3,x4,x5): #finger extension control RIGHT HAND (thumb,index,middle,ring,pinky)
     a1=x1/10
     if x1>=6:
         a1=0.8
@@ -148,9 +150,9 @@ def rhF(x1,x2,x3,x4,x5): #control dedos mano derecha (pulgar, indice, medio,anul
     bpy.data.objects['3'].pose.bones["pinky.R"].rotation_quaternion[1]=a5    
     
     
-#rhF(0,0,0,0,0)
+#rhF(0,0,0,0,0)  #example, uncomment and run script to test  
 
-def lhF(x1,x2,x3,x4,x5): #mano izquierda (pulgar, indice, medio,anular, menique)
+def lhF(x1,x2,x3,x4,x5): #finger extension control LEFT HAND (thumb,index,middle,ring,pink)
     a1=x1/10
     bpy.data.objects['3'].pose.bones["thumb.L"].rotation_quaternion[1]=a1
     if x1>6:
@@ -169,12 +171,12 @@ def lhF(x1,x2,x3,x4,x5): #mano izquierda (pulgar, indice, medio,anular, menique)
     bpy.data.objects['3'].pose.bones["pinky.L"].rotation_quaternion[1]=a5    
     
     
-#lhF(0,0,0,0,0)
+#lhF(0,0,0,0,0) #example, uncomment and run script to test  
 
 ##################################################################
 
-def detRF(f,m,r): #mov dedos especificos
-   
+def detRF(f,m,r): #especific finger position RIGHT HAND (finger=[1=thumb...,5=pinky],separation from fingers=[-1,0,1], perpendicular to pal=[0,1])
+    #which finger
     y1='thumb.01.R'
     y2='f_index.01.R'
     y3='f_middle.01.R'
@@ -197,12 +199,12 @@ def detRF(f,m,r): #mov dedos especificos
     else:
         print ('error')
                           
-    ##EXTENSIoN DE LA MANO
+    #separation from other fingers
     if m==0:
         mov=0
-    elif m==1:   #alejar el dedo
+    elif m==1:   #moves away
          mov= -0.2 
-    elif m==-1:  #acercar el dedo
+    elif m==-1:  #moves closer
         mov= 0.2
         if f==1 or f==5:
             mov=0.2
@@ -217,7 +219,7 @@ def detRF(f,m,r): #mov dedos especificos
     else:
         print ('error')
         
- ##ANGULO DE LA MANO
+ #perpendicular from palm
     if r==1:
         if f==1:
             d.rotation_quaternion[1]=0.2
@@ -227,9 +229,10 @@ def detRF(f,m,r): #mov dedos especificos
           d.rotation_quaternion[1]=0            
            
         
-#detRF(5,0,0)
+#detRF(5,0,0) #example, uncomment and run script to test  
 
-def detLF(f,m,r): #mov dedos especificos
+def detLF(f,m,r): #especific finger position RIGHT HAND (finger=[1=thumb...,5=pinky],separation from fingers=[-1,0,1], perpendicular to pal=[0,1])
+    #which finger
    
     y1='thumb.01.L'
     y2='f_index.01.L'
@@ -238,8 +241,8 @@ def detLF(f,m,r): #mov dedos especificos
     y5='f_pinky.01.L'
            
     if f==0:
-        m=0
-        r=0  
+        print('no finger was specified')
+        return  
     elif f==1:
         d=bpy.data.objects['3'].pose.bones[y1]
     elif f==2:
@@ -251,16 +254,17 @@ def detLF(f,m,r): #mov dedos especificos
     elif f==5:
         d=bpy.data.objects['3'].pose.bones[y5]
     else:
-        print ('error')
+        print ('no finger was specified')
+        return
                          
-    ##EXTENSIoN DE LA MANO
+    #separation from fingers
     if m==0:
         mov=0
-    elif m==-1:   #acercar el dedo
+    elif m==-1:   #moves closer
         mov= -0.2     
         if f==4:
             mov=-0.12
-    elif m==1:  #alejar el dedo
+    elif m==1:  #moves away
         mov= 0.1
         if f==1:
             mov=0.2
@@ -273,7 +277,7 @@ def detLF(f,m,r): #mov dedos especificos
     else:
         print ('error')   
  
- ##ANGULO DE LA MANO
+ #perpendicular from palm
     if r==0:
         d.rotation_quaternion[1]=0
     elif r==1:
@@ -282,7 +286,7 @@ def detLF(f,m,r): #mov dedos especificos
         else:
              d.rotation_quaternion[1]=0.5
              
-#detLF(5,0,0)
+detLF(1,0,0)
 
  
 ####################################################

@@ -1,3 +1,5 @@
+import bpy
+
 def htilt(m,x,a): #control movimientos de cabeza (M= r o t)
     hd= bpy.context.object.pose.bones["head"]
     nc= bpy.context.object.pose.bones["neck"]
@@ -26,7 +28,7 @@ def htilt(m,x,a): #control movimientos de cabeza (M= r o t)
                 nc.rotation_quaternion[1]=0.3        
                                             
                                             
-htilt('t','y',0)    
+htilt('t','y',1)    
 
 def mouth(a):
     jaw=bpy.context.object.pose.bones["jaw"]
@@ -43,4 +45,4 @@ def mouth(a):
     #elif a=='o':
             
         
-mouth(0)          
+#mouth(0)          
